@@ -12,6 +12,23 @@ MySQL - 5.6.28-log : Database - metrisislab
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*Table structure for table `athathlete` */
+
+DROP TABLE IF EXISTS `athathlete`;
+
+CREATE TABLE `athathlete` (
+  `athAthleteID` int(11) NOT NULL AUTO_INCREMENT,
+  `athAthleteName` varchar(250) DEFAULT NULL,
+  `athAthleteHmGennisis` date DEFAULT NULL,
+  `athGenderID` int(11) DEFAULT NULL,
+  `athFootID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`athAthleteID`),
+  KEY `ak_athAthlete_athGender` (`athGenderID`),
+  KEY `ak_athAthlete_athFoot` (`athFootID`),
+  CONSTRAINT `fk_athAthlete_athFoot` FOREIGN KEY (`athFootID`) REFERENCES `athfoot` (`athFootID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_athAthlete_athGender` FOREIGN KEY (`athGenderID`) REFERENCES `athgender` (`athGenderID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=greek;
+
 /*Table structure for table `athfoot` */
 
 DROP TABLE IF EXISTS `athfoot`;
