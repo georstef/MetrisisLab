@@ -12,6 +12,34 @@ MySQL - 5.6.28-log : Database - metrisislab
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`metrisislab` /*!40100 DEFAULT CHARACTER SET greek */;
+
+/*Table structure for table `_param` */
+
+DROP TABLE IF EXISTS `_param`;
+
+CREATE TABLE `_param` (
+  `ParamID` int(11) NOT NULL AUTO_INCREMENT,
+  `ParamUsername` varchar(32) NOT NULL DEFAULT 'everyone',
+  `ParamName` varchar(48) NOT NULL DEFAULT '',
+  `ParamVisible` tinyint(4) NOT NULL DEFAULT '1',
+  `ParamGroupName` varchar(128) DEFAULT NULL,
+  `ParamOrder` int(11) NOT NULL DEFAULT '0',
+  `ParamDescription` varchar(128) NOT NULL DEFAULT '',
+  `ParamType` varchar(16) NOT NULL DEFAULT '',
+  `ParamListSource` varchar(48) DEFAULT NULL,
+  `ParamKeyField` varchar(48) DEFAULT NULL,
+  `ParamListField` varchar(48) DEFAULT NULL,
+  `ParamValue` text,
+  `ParamDisplayValue` text,
+  `ParamPipelined` tinyint(4) NOT NULL DEFAULT '0',
+  `_DateCreated` datetime DEFAULT NULL,
+  `_DateModified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ParamYpokatastima` varchar(32) DEFAULT 'all',
+  PRIMARY KEY (`ParamID`),
+  UNIQUE KEY `ak_ParamName` (`ParamUsername`,`ParamName`,`ParamYpokatastima`)
+) ENGINE=InnoDB DEFAULT CHARSET=greek;
+
 /*Table structure for table `athathlete` */
 
 DROP TABLE IF EXISTS `athathlete`;
@@ -22,6 +50,7 @@ CREATE TABLE `athathlete` (
   `athAthleteHmGennisis` date DEFAULT NULL,
   `athGenderID` int(11) DEFAULT NULL,
   `athFootID` int(11) DEFAULT NULL,
+  `athAthleteTelephone` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`athAthleteID`),
   KEY `ak_athAthlete_athGender` (`athGenderID`),
   KEY `ak_athAthlete_athFoot` (`athFootID`),
@@ -70,6 +99,45 @@ CREATE TABLE `athtrainingphase` (
   `athTrainingPhaseName` varchar(50) DEFAULT NULL,
   `athTrainingPhaseNameShort` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`athTrainingPhaseID`)
+) ENGINE=InnoDB DEFAULT CHARSET=greek;
+
+/*Table structure for table `metmetrisi` */
+
+DROP TABLE IF EXISTS `metmetrisi`;
+
+CREATE TABLE `metmetrisi` (
+  `metMetrisiID` int(11) NOT NULL AUTO_INCREMENT,
+  `metMetrisiHmerominia` date NOT NULL,
+  `athAthleteID` int(11) DEFAULT NULL,
+  `athSportID` varchar(50) DEFAULT NULL,
+  `athTrainingPhaseID` int(11) DEFAULT NULL,
+  `metPlaceID` int(11) DEFAULT NULL,
+  `metMetrisiHlikia` decimal(11,1) DEFAULT NULL,
+  `metMetrisiTeam` varchar(200) DEFAULT NULL,
+  `metMetrisiCoach` varchar(200) DEFAULT NULL,
+  `metMetrisiGeneralTrainingPerWeek` int(11) DEFAULT NULL,
+  `metMetrisiWeightTrainingPerWeek` int(11) DEFAULT NULL,
+  `metMetrisiJumpTrainingPerWeek` int(11) DEFAULT NULL,
+  `metMetrisiMaza` decimal(11,1) DEFAULT NULL,
+  `metMetrisiAnastima` decimal(11,1) DEFAULT NULL,
+  `metMetrisiEktasi` decimal(11,1) DEFAULT NULL,
+  `metMetrisiDiaforaEktasiAnastima` decimal(11,1) DEFAULT NULL,
+  `metMetrisiAnatasi` decimal(11,1) DEFAULT NULL,
+  `metMetrisiDiaforaAnatasiAnastima` decimal(11,1) DEFAULT NULL,
+  `metMetrisiLipos` decimal(12,2) DEFAULT NULL,
+  `metMetrisiNero` decimal(12,2) DEFAULT NULL,
+  `metMetrisiEukampsia` decimal(11,1) DEFAULT NULL,
+  `metMetrisiHRCalm` int(11) DEFAULT NULL,
+  PRIMARY KEY (`metMetrisiID`),
+  KEY `ak_metMetrisi_athAthlete` (`athAthleteID`),
+  KEY `ak_metMetrisi_metMetrisiHmerominia` (`metMetrisiHmerominia`),
+  KEY `ak_metMetrisi_athSport` (`athSportID`),
+  KEY `ak_metMetrisi_athTrainingPhase` (`athTrainingPhaseID`),
+  KEY `ak_metMetrisi_metPlace` (`metPlaceID`),
+  CONSTRAINT `fk_metMetrisi_athAthlete` FOREIGN KEY (`athAthleteID`) REFERENCES `athathlete` (`athAthleteID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_metMetrisi_athSport` FOREIGN KEY (`athSportID`) REFERENCES `athsport` (`athSportID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_metMetrisi_athTrainingPhase` FOREIGN KEY (`athTrainingPhaseID`) REFERENCES `athtrainingphase` (`athTrainingPhaseID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_metMetrisi_metPlace` FOREIGN KEY (`metPlaceID`) REFERENCES `metplace` (`metPlaceID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=greek;
 
 /*Table structure for table `metplace` */
