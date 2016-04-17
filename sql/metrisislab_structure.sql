@@ -1,5 +1,5 @@
 /*
-SQLyog Community v12.2.1 (64 bit)
+SQLyog Ultimate v12.09 (64 bit)
 MySQL - 5.6.28-log : Database - metrisislab
 *********************************************************************
 */
@@ -112,7 +112,7 @@ CREATE TABLE `metmetrisi` (
   `athSportID` varchar(50) DEFAULT NULL,
   `athTrainingPhaseID` int(11) DEFAULT NULL,
   `metPlaceID` int(11) DEFAULT NULL,
-  `metMetrisiHlikia` decimal(11,1) DEFAULT NULL,
+  `metMetrisiHlikiaCalc` decimal(11,1) DEFAULT NULL,
   `metMetrisiTeam` varchar(200) DEFAULT NULL,
   `metMetrisiCoach` varchar(200) DEFAULT NULL,
   `metMetrisiGeneralTrainingPerWeek` int(11) DEFAULT NULL,
@@ -121,9 +121,9 @@ CREATE TABLE `metmetrisi` (
   `metMetrisiMaza` decimal(11,1) DEFAULT NULL,
   `metMetrisiAnastima` decimal(11,1) DEFAULT NULL,
   `metMetrisiEktasi` decimal(11,1) DEFAULT NULL,
-  `metMetrisiDiaforaEktasiAnastima` decimal(11,1) DEFAULT NULL,
+  `metMetrisiDiaforaEktasiAnastimaCalc` decimal(11,1) DEFAULT NULL,
   `metMetrisiAnatasi` decimal(11,1) DEFAULT NULL,
-  `metMetrisiDiaforaAnatasiAnastima` decimal(11,1) DEFAULT NULL,
+  `metMetrisiDiaforaAnatasiAnastimaCalc` decimal(11,1) DEFAULT NULL,
   `metMetrisiLipos` decimal(12,2) DEFAULT NULL,
   `metMetrisiNero` decimal(12,2) DEFAULT NULL,
   `metMetrisiEukampsia` decimal(11,1) DEFAULT NULL,
