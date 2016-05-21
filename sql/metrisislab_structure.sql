@@ -103,7 +103,6 @@ DROP TABLE IF EXISTS `athsport`;
 CREATE TABLE `athsport` (
   `athSportID` varchar(50) NOT NULL,
   `athSportName` varchar(250) DEFAULT NULL,
-  `athSportIDAntistoixo` varchar(50) DEFAULT NULL,
   `athAxiologisiCategoryID` int(11) DEFAULT NULL,
   PRIMARY KEY (`athSportID`),
   KEY `ak_athSport_athAxiologisiCategory` (`athAxiologisiCategoryID`),
@@ -205,7 +204,7 @@ CREATE TABLE `metgoniometro` (
 DROP TABLE IF EXISTS `methandgrip`;
 
 CREATE TABLE `methandgrip` (
-  `metHandGripID` int(11) NOT NULL,
+  `metHandGripID` int(11) NOT NULL AUTO_INCREMENT,
   `metMetrisiID` int(11) DEFAULT NULL,
   `metHandGripMaxDeksi` decimal(12,2) DEFAULT NULL,
   `metHandGripMaxAristero` decimal(12,2) DEFAULT NULL,
