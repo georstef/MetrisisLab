@@ -64,6 +64,16 @@ CREATE TABLE `athathlete` (
   CONSTRAINT `fk_athAthlete_athGender` FOREIGN KEY (`athGenderID`) REFERENCES `athgender` (`athGenderID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=greek;
 
+/*Table structure for table `athaxiologisicategory` */
+
+DROP TABLE IF EXISTS `athaxiologisicategory`;
+
+CREATE TABLE `athaxiologisicategory` (
+  `athAxiologisiCategoryID` int(11) NOT NULL AUTO_INCREMENT,
+  `athAxiologisiCategoryOnoma` varchar(250) NOT NULL,
+  PRIMARY KEY (`athAxiologisiCategoryID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=greek;
+
 /*Table structure for table `athfoot` */
 
 DROP TABLE IF EXISTS `athfoot`;
@@ -93,7 +103,11 @@ DROP TABLE IF EXISTS `athsport`;
 CREATE TABLE `athsport` (
   `athSportID` varchar(50) NOT NULL,
   `athSportName` varchar(250) DEFAULT NULL,
-  PRIMARY KEY (`athSportID`)
+  `athSportIDAntistoixo` varchar(50) DEFAULT NULL,
+  `athAxiologisiCategoryID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`athSportID`),
+  KEY `ak_athSport_athAxiologisiCategory` (`athAxiologisiCategoryID`),
+  CONSTRAINT `fk_athSport_athAxiologisiCategory` FOREIGN KEY (`athAxiologisiCategoryID`) REFERENCES `athaxiologisicategory` (`athAxiologisiCategoryID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=greek;
 
 /*Table structure for table `athtrainingphase` */
@@ -430,6 +444,27 @@ CREATE TABLE `metwingatexeria` (
   KEY `ak_metWingateXeria_metMetrisi` (`metMetrisiID`),
   CONSTRAINT `fk_metWingateXeria_metMetrisi` FOREIGN KEY (`metMetrisiID`) REFERENCES `metmetrisi` (`metMetrisiID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=greek;
+
+/* Procedure structure for procedure `SetTableSameAxiologisiSport` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `SetTableSameAxiologisiSport` */;
+
+DELIMITER $$
+
+/*!50003 CREATE PROCEDURE `SetTableSameAxiologisiSport`(ID VARCHAR(50))
+BEGIN
+  DROP TEMPORARY TABLE IF EXISTS spTableSameAxiologisiSport;
+  CREATE TEMPORARY TABLE spTableSameAxiologisiSport AS   
+  SELECT CASE WHEN athSport2.athSportID IS NOT NULL 
+         THEN athSport2.athSportID
+         ELSE athSport.athSportID
+         END AS athSportID
+  FROM athSport  
+  LEFT JOIN athAxiologisiCategory ON athAxiologisiCategory.athAxiologisiCategoryID = athSport.athAxiologisiCategoryID
+  LEFT JOIN athSport AS athSport2 ON athSport2.athAxiologisiCategoryID = athAxiologisiCategory.athAxiologisiCategoryID
+  WHERE athSport.athSportID = ID;
+END */$$
+DELIMITER ;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
