@@ -70,7 +70,7 @@ CREATE TABLE `athaxiologisiage` (
   `athAxiologisiAgeID` int(11) NOT NULL AUTO_INCREMENT,
   `athAxiologisiAgeName` varchar(250) NOT NULL,
   PRIMARY KEY (`athAxiologisiAgeID`)
-) ENGINE=InnoDB DEFAULT CHARSET=greek;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=greek;
 
 /*Table structure for table `athaxiologisiageklimaka` */
 
@@ -84,7 +84,7 @@ CREATE TABLE `athaxiologisiageklimaka` (
   PRIMARY KEY (`athAxiologisiAgeKlimakaID`),
   KEY `ak_athAxiologisiAgeKlimaka_athAxiologisiAge` (`athAxiologisiAgeID`),
   CONSTRAINT `fk_athAxiologisiAgeKlimaka_athAxiologisiAge` FOREIGN KEY (`athAxiologisiAgeID`) REFERENCES `athaxiologisiage` (`athAxiologisiAgeID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=greek;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=greek;
 
 /*Table structure for table `athaxiologisicategory` */
 
@@ -165,7 +165,7 @@ CREATE TABLE `metergospirometro` (
   PRIMARY KEY (`metErgospirometroID`),
   KEY `ak_metErgospirometro_metMetrisi` (`metMetrisiID`),
   CONSTRAINT `fk_metErgospirometro_metMetrisi` FOREIGN KEY (`metMetrisiID`) REFERENCES `metmetrisi` (`metMetrisiID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3787 DEFAULT CHARSET=greek;
+) ENGINE=InnoDB AUTO_INCREMENT=16825 DEFAULT CHARSET=greek;
 
 /*Table structure for table `metergospirometrobike` */
 
@@ -187,7 +187,7 @@ CREATE TABLE `metergospirometrobike` (
   PRIMARY KEY (`metErgospirometroBikeID`),
   KEY `ak_metErgospirometroBike_metMetrisi` (`metMetrisiID`),
   CONSTRAINT `fk_metErgospirometroBike_metMetrisi` FOREIGN KEY (`metMetrisiID`) REFERENCES `metmetrisi` (`metMetrisiID`)
-) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=greek;
+) ENGINE=InnoDB AUTO_INCREMENT=374 DEFAULT CHARSET=greek;
 
 /*Table structure for table `metfitlight` */
 
@@ -201,7 +201,7 @@ CREATE TABLE `metfitlight` (
   PRIMARY KEY (`metFitLightID`),
   KEY `ak_metFitLight_metMetrisi` (`metMetrisiID`),
   CONSTRAINT `fk_metFitLight_metMetrisi` FOREIGN KEY (`metMetrisiID`) REFERENCES `metmetrisi` (`metMetrisiID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3874 DEFAULT CHARSET=greek;
+) ENGINE=InnoDB AUTO_INCREMENT=15125 DEFAULT CHARSET=greek;
 
 /*Table structure for table `metgoniometro` */
 
@@ -222,7 +222,7 @@ CREATE TABLE `metgoniometro` (
   PRIMARY KEY (`metGoniometroID`),
   KEY `ak_metGoniometro_metMetrisi` (`metMetrisiID`),
   CONSTRAINT `fk_metGoniometro_metMetrisi` FOREIGN KEY (`metMetrisiID`) REFERENCES `metmetrisi` (`metMetrisiID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3874 DEFAULT CHARSET=greek;
+) ENGINE=InnoDB AUTO_INCREMENT=15606 DEFAULT CHARSET=greek;
 
 /*Table structure for table `methandgrip` */
 
@@ -236,7 +236,7 @@ CREATE TABLE `methandgrip` (
   PRIMARY KEY (`metHandGripID`),
   KEY `ak_metHandGrip_metMetrisi` (`metMetrisiID`),
   CONSTRAINT `fk_metHandGrip_metMetrisi` FOREIGN KEY (`metMetrisiID`) REFERENCES `metmetrisi` (`metMetrisiID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3895 DEFAULT CHARSET=greek;
+) ENGINE=InnoDB AUTO_INCREMENT=10068 DEFAULT CHARSET=greek;
 
 /*Table structure for table `metisokinetic` */
 
@@ -272,7 +272,7 @@ CREATE TABLE `metisokinetic` (
   PRIMARY KEY (`metIsokineticID`),
   KEY `ak_metIsokinetic_metMetrisi` (`metMetrisiID`),
   CONSTRAINT `fk_metIsokinetic_metMetrisi` FOREIGN KEY (`metMetrisiID`) REFERENCES `metmetrisi` (`metMetrisiID`)
-) ENGINE=InnoDB AUTO_INCREMENT=13604 DEFAULT CHARSET=greek;
+) ENGINE=InnoDB AUTO_INCREMENT=18842 DEFAULT CHARSET=greek;
 
 /*Table structure for table `metisometric` */
 
@@ -298,7 +298,7 @@ CREATE TABLE `metisometric` (
   PRIMARY KEY (`metIsometricID`),
   KEY `ak_metIsometric_metMetrisi` (`metMetrisiID`),
   CONSTRAINT `fk_metIsometric_metMetrisi` FOREIGN KEY (`metMetrisiID`) REFERENCES `metmetrisi` (`metMetrisiID`)
-) ENGINE=InnoDB AUTO_INCREMENT=13604 DEFAULT CHARSET=greek;
+) ENGINE=InnoDB AUTO_INCREMENT=17638 DEFAULT CHARSET=greek;
 
 /*Table structure for table `metmedicineball` */
 
@@ -311,7 +311,7 @@ CREATE TABLE `metmedicineball` (
   PRIMARY KEY (`metMedicineBallID`),
   KEY `ak_metMedicineBall_metMetrisi` (`metMetrisiID`),
   CONSTRAINT `fk_metMedicineBall_metMetrisi` FOREIGN KEY (`metMetrisiID`) REFERENCES `metmetrisi` (`metMetrisiID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3874 DEFAULT CHARSET=greek;
+) ENGINE=InnoDB AUTO_INCREMENT=14408 DEFAULT CHARSET=greek;
 
 /*Table structure for table `metmetrisi` */
 
@@ -383,7 +383,7 @@ CREATE TABLE `metoptojump` (
   PRIMARY KEY (`metOptoJumpID`),
   KEY `ak_metOptoJump_metMetrisi` (`metMetrisiID`),
   CONSTRAINT `fk_metOptoJump_metMetrisi` FOREIGN KEY (`metMetrisiID`) REFERENCES `metmetrisi` (`metMetrisiID`)
-) ENGINE=InnoDB AUTO_INCREMENT=17558 DEFAULT CHARSET=greek;
+) ENGINE=InnoDB AUTO_INCREMENT=22648 DEFAULT CHARSET=greek;
 
 /*Table structure for table `metphotocells` */
 
@@ -406,7 +406,7 @@ CREATE TABLE `metphotocells` (
   PRIMARY KEY (`metPhotocellsID`),
   KEY `ak_metPhotocells_metMetrisi` (`metMetrisiID`),
   CONSTRAINT `fk_metPhotocells_metMetrisi` FOREIGN KEY (`metMetrisiID`) REFERENCES `metmetrisi` (`metMetrisiID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3876 DEFAULT CHARSET=greek;
+) ENGINE=InnoDB AUTO_INCREMENT=19549 DEFAULT CHARSET=greek;
 
 /*Table structure for table `metplace` */
 
@@ -433,7 +433,7 @@ CREATE TABLE `mettestantoxis` (
   PRIMARY KEY (`metTestAntoxisID`),
   KEY `ak_metTestAntoxis_metMetrisi` (`metMetrisiID`),
   CONSTRAINT `fk_metTestAntoxis_metMetrisi` FOREIGN KEY (`metMetrisiID`) REFERENCES `metmetrisi` (`metMetrisiID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3874 DEFAULT CHARSET=greek;
+) ENGINE=InnoDB AUTO_INCREMENT=17766 DEFAULT CHARSET=greek;
 
 /*Table structure for table `metwingatepodia` */
 
@@ -450,7 +450,7 @@ CREATE TABLE `metwingatepodia` (
   PRIMARY KEY (`metWingatePodiaID`),
   KEY `ak_metWingatePodia_metMetrisi` (`metMetrisiID`),
   CONSTRAINT `fk_metWingatePodia_metMetrisi` FOREIGN KEY (`metMetrisiID`) REFERENCES `metmetrisi` (`metMetrisiID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3894 DEFAULT CHARSET=greek;
+) ENGINE=InnoDB AUTO_INCREMENT=16850 DEFAULT CHARSET=greek;
 
 /*Table structure for table `metwingatexeria` */
 
@@ -467,7 +467,38 @@ CREATE TABLE `metwingatexeria` (
   PRIMARY KEY (`metWingateXeriaID`),
   KEY `ak_metWingateXeria_metMetrisi` (`metMetrisiID`),
   CONSTRAINT `fk_metWingateXeria_metMetrisi` FOREIGN KEY (`metMetrisiID`) REFERENCES `metmetrisi` (`metMetrisiID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3894 DEFAULT CHARSET=greek;
+) ENGINE=InnoDB AUTO_INCREMENT=15696 DEFAULT CHARSET=greek;
+
+/* Procedure structure for procedure `SetTableSameAxiologisiMetrisi` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `SetTableSameAxiologisiMetrisi` */;
+
+DELIMITER $$
+
+/*!50003 CREATE PROCEDURE `SetTableSameAxiologisiMetrisi`(ID INT)
+BEGIN
+  DECLARE SportID varchar(50);
+  DECLARE AgeFrom DECIMAL(11,1);
+  DECLARE AgeTo DECIMAL(11,1);
+  set SportID = (select athSportID FROM metMetrisi where metMetrisiID = ID);
+  
+  CALL SetTableSameAxiologisiSport(SportID); -- γεμίζει έναν πίνακα με όλα τα Σπορ που αξιολογούνται μαζί
+  CALL SetVarSameAxiologisiAgeOria(ID, AgeFrom, AgeTo); -- βρίσκουμε τα όρια της ηλικίας
+  
+  -- γεμίζουμε έναν πίνακα με τα ID όλων των μετρήσεων που αξιολογούνται μαζί
+  DROP TEMPORARY TABLE IF EXISTS spTableSameAxiologisiMetrisi;
+  CREATE TEMPORARY TABLE spTableSameAxiologisiMetrisi AS
+  SELECT 
+    metMetrisiID
+  FROM
+    metmetrisi 
+  INNER JOIN 
+    spTableSameAxiologisiSport ON spTableSameAxiologisiSport.athSportID = metmetrisi.athSportID
+  WHERE 
+    metmetrisi.metMetrisiHlikiaCalc BETWEEN AgeFrom AND AgeTo;
+    
+END */$$
+DELIMITER ;
 
 /* Procedure structure for procedure `SetTableSameAxiologisiSport` */
 
@@ -487,6 +518,45 @@ BEGIN
   LEFT JOIN athAxiologisiCategory ON athAxiologisiCategory.athAxiologisiCategoryID = athSport.athAxiologisiCategoryID
   LEFT JOIN athSport AS athSport2 ON athSport2.athAxiologisiCategoryID = athAxiologisiCategory.athAxiologisiCategoryID
   WHERE athSport.athSportID = ID;
+END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `SetVarSameAxiologisiAgeOria` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `SetVarSameAxiologisiAgeOria` */;
+
+DELIMITER $$
+
+/*!50003 CREATE PROCEDURE `SetVarSameAxiologisiAgeOria`(ID int, OUT AgeFrom decimal(11,1), OUT AgeTo DECIMAL(11,1))
+BEGIN
+  SELECT 
+    athAxiologisiAgeKlimakaAgeFrom, athAxiologisiAgeKlimakaAgeTo 
+    into AgeFrom, AgeTo 
+  FROM metmetrisi
+  INNER JOIN athsport ON athsport.athSportID = metmetrisi.athSportID
+  INNER JOIN athaxiologisiageklimaka ON athaxiologisiageklimaka.athAxiologisiAgeID = athsport.athAxiologisiAgeID
+  WHERE
+    metMetrisiID = ID AND
+    metmetrisi.metMetrisiHlikiaCalc BETWEEN athAxiologisiAgeKlimakaAgeFrom AND athAxiologisiAgeKlimakaAgeTo;
+END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `SetVarSpecificAgeOria` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `SetVarSpecificAgeOria` */;
+
+DELIMITER $$
+
+/*!50003 CREATE PROCEDURE `SetVarSpecificAgeOria`(ID VARCHAR(50), Age DECIMAL(11,1), OUT AgeFrom DECIMAL(11,1), OUT AgeTo DECIMAL(11,1))
+BEGIN
+  SELECT 
+    athAxiologisiAgeKlimakaAgeFrom, athAxiologisiAgeKlimakaAgeTo 
+    INTO AgeFrom, AgeTo 
+FROM athsport 
+INNER JOIN athaxiologisiageklimaka ON athaxiologisiageklimaka.athAxiologisiAgeID = athsport.athAxiologisiAgeID
+WHERE
+  athSportID = ID AND
+  Age BETWEEN athAxiologisiAgeKlimakaAgeFrom AND athAxiologisiAgeKlimakaAgeTo;
 END */$$
 DELIMITER ;
 
